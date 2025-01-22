@@ -1,0 +1,6 @@
+panel:
+  api_key: ""
+  panel_url: "https://panel.zluqe.org"
+
+discord:
+  webhook_url: ""
