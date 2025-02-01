@@ -4,7 +4,7 @@ import yaml
 import datetime
 
 # Load the configuration file
-with open("config.yml", "r") as ymlfile:
+with open("./config.yml", "r") as ymlfile:
     cfg = yaml.safe_load(ymlfile)
 
 # Configuration values
@@ -39,16 +39,16 @@ async def send_discord_notification(session, username, server_name, server_uuid)
         
         # Ping message
         ping_message = {
-            "content": f"<@{username}> ⚠️ You have a server at risk of deletion!"
+            "content": f"⚠️ <@{username}> You have a server at risk of deletion! ⚠️"
         }
         async with session.post(DISCORD_WEBHOOK_URL, json=ping_message) as ping_response:
             ping_response.raise_for_status()
 
         # Embed message
         embed = {
-            "title": "⚠️ Server Deletion Warning",
+            "title": "⚠️ Server Deletion Warning ⚠️",
             "description": f"<@{username}>, your server **[{server_name}]({server_url})** is suspended and at risk of deletion.",
-            "color": 15158332,  # Red color
+            "color": 15158332,
             "fields": [
                 {
                     "name": "Server Name",
@@ -62,13 +62,13 @@ async def send_discord_notification(session, username, server_name, server_uuid)
                 },
                 {
                     "name": "Action Required",
-                    "value": "```Please resolve any issues or your server will be deleted permanently.```",
+                    "value": "```Please renew your server, or resolve any issues by opening a ticket!```",
                     "inline": False
                 }
             ],
             "footer": {
                 "text": "Zluqe | Quality Hosting, for Quality Bots!",
-                "icon_url": "https://raw.githubusercontent.com/Zluqe/logo/refs/heads/main/z.png"  # Optional footer icon
+                "icon_url": "https://raw.githubusercontent.com/Zluqe/logo/refs/heads/main/z.png"
             },
             "timestamp": f"{datetime.datetime.now().isoformat()}",
         }

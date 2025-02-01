@@ -2,7 +2,7 @@ import requests
 import yaml
 
 # Load the configuration file
-with open("config.yml", "r") as ymlfile:
+with open("./config.yml", "r") as ymlfile:
     cfg = yaml.safe_load(ymlfile)
 
 PTERO_PANEL_URL = cfg["panel"]["url"]
