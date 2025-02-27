@@ -5,7 +5,7 @@ import datetime
 import calendar
 
 # Load the configuration file
-with open("./config.yml", "r") as ymlfile:
+with open("../config.yml", "r") as ymlfile:
     cfg = yaml.safe_load(ymlfile)
 
 def get_last_day_of_current_month():
