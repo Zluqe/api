@@ -2,10 +2,20 @@ import aiohttp
 import asyncio
 import yaml
 import datetime
+import calendar
 
 # Load the configuration file
 with open("./config.yml", "r") as ymlfile:
     cfg = yaml.safe_load(ymlfile)
+
+def get_last_day_of_current_month():
+    today = datetime.date.today()
+    year = today.year
+    month = today.month
+    last_day = calendar.monthrange(year, month)[1]
+    return datetime.date(year, month, last_day)
+
+last_day_date = get_last_day_of_current_month()
 
 # Configuration values
 PTERO_PANEL_URL = cfg['panel']['panel_url']
@@ -57,7 +67,7 @@ async def send_discord_notification(session, username, server_name, server_uuid)
                 },
                 {
                     "name": "Deletion Date",
-                    "value": f"```30th of this month```",
+                    "value": f"```{last_day_date}```",
                     "inline": True
                 },
                 {
