@@ -18,7 +18,7 @@ def get_last_day_of_current_month():
 last_day_date = get_last_day_of_current_month()
 
 # Configuration values
-PTERO_PANEL_URL = cfg['panel']['panel_url']
+PTERO_PANEL_URL = cfg['panel']['url']
 API_KEY = cfg['panel']['api_key']
 DISCORD_WEBHOOK_URL = cfg['discord']['webhook_url']
 
