@@ -45,7 +45,7 @@ async def send_discord_notification(session, username, server_name, server_uuid)
     Sends a ping notification and an embed to a Discord webhook.
     """
     try:
-        server_url = f"{cfg['panel']['panel_url']}/server/{server_uuid}"
+        server_url = f"{cfg['panel']['url']}/server/{server_uuid}"
         
         # Ping message
         ping_message = {
